@@ -5,6 +5,195 @@
 
     Example context (json): {}
 }}
-<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" tabindex="-1">
-    {{> theme_boost/flat_navigation }}
+<div id="nav-drawer" data-region="drawer" class="d-print-none moodle-has-zindex {{^navdraweropen}}closed{{/navdraweropen}}" 
+aria-hidden="{{#navdraweropen}}false{{/navdraweropen}}{{^navdraweropen}}true{{/navdraweropen}}" 
+
+
+tabindex="-1">
+    <!-- custom_menu -->
+<div class="nice-nav" id="sidebar">
+		<ul class="nav flex-column flex-nowrap overflow-hidden">
+		 <li>
+	<a href="https://cdl.cms.co.in/lms/local/staticpage/view.php?page=eLMS"><span class="toggle-right"><i class="fa fa-home" aria-hidden="true"></i>
+Home</span>
+      </a></li>
+	 
+			 
+		 
+									<style>
+
+
+
+.nice-nav .nav-link[data-toggle].collapsed:after {
+    font-family: FontAwesome;
+    content: "\f054";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+}
+.nice-nav .nav-link[data-toggle]:not(.collapsed):after {
+    font-family: FontAwesome;
+    content: "\f077";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+}
+.nice-nav ul li a:after {
+     float: right;
+	position :absolute;
+	top: 14px;
+	right:10px;
+}
+</style>
+	</ul>
+	</div>
+ 
+
+<script>$(document).ready(function () {
+  //menu left toggle
+
+  $(".toggle-nav").click(function () {
+    // alert('done');
+    $this = $(this);
+    $nav = $(".nice-nav");
+    //$nav.fadeToggle("fast", function() {
+    //  $nav.slideLeft('250');
+    //  });
+
+    $nav.toggleClass("open");
+  });
+  $(".body-part").click(function () {
+    $nav.addClass("open");
+  });
+  //  $nav.addClass('open');
+
+  //drop down menu
+  $submenu = $(".child-menu-ul");
+  $(".child-menu .toggle-right").on("click", function (e) {
+    e.preventDefault();
+    $this = $(this);
+    $parent = $this.parent().next();
+    // $parent.addClass('active');
+    $tar = $(".child-menu-ul");
+    if (!$parent.hasClass("active")) {
+      $tar.removeClass("active").slideUp("fast");
+      $parent.addClass("active").slideDown("fast");
+    } else {
+      $parent.removeClass("active").slideUp("fast");
+    }
+  });
+});
+
+</script>
+
+
+ {{> theme_boost/flat_navigation }}
+ 
+    <!-- custom_menu -->
+<div class="nice-nav" id="sidebar">
+		<ul class="nav flex-column flex-nowrap overflow-hidden">
+		
+		<!--	 <li class="nav-item">
+				<a class="nav-link text-truncate" href="#"><i class="fa fa-home"></i> <span class="d-none d-sm-inline">E Book</span></a>
+			</li>  -->
+			<li class="nav-item">
+				<a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="icon fa fa-book" aria-hidden="true"></i>
+				<span class="d-none d-sm-inline">eBook</span></a>
+				<div class="collapse" id="submenu1" aria-expanded="false">
+					<ul class="flex-column  nav">
+						<li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/local/staticpage/view.php?page=Technology"><span>Technology</span></a></li>
+						<li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/local/staticpage/view.php?page=domain"><span>Functions/Domain</span></a></li>
+						<li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/local/staticpage/view.php?page=Management"><span>Management/Behavioral</span></a></li>
+						
+
+					<!--	<li class="nav-item">
+							<a class="nav-link collapsed " href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1">
+								<span>Management</span></a>
+							<div class="collapse" id="submenu1sub1" aria-expanded="false">
+								<ul class="flex-column nav ">
+									<li class="nav-item">
+										<a class="nav-link " href="#">
+											<i class="fa fa-fw fa-clock-o"></i> Daily </a>
+									</li>
+									<li class="nav-item">
+												 <a class="nav-link collapsed " href="#submenu1sub2" data-toggle="collapse" data-target="#submenu1sub2">
+										<span>Dashboard</span></a>
+										<div class="collapse" id="submenu1sub2" aria-expanded="false">
+										<ul class="flex-column nav ">
+											<li class="nav-item">
+												<a class="nav-link " href="#">
+													<i class="fa fa-fw fa-clock-o"></i> Daily </a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link " href="#">
+													<i class="fa fa-fw fa-dashboard"></i> Dashboard </a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link " href="#">
+													<i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link " href="#">
+													<i class="fa fa-fw fa-compass"></i> Areas </a>
+											</li>
+										</ul>
+										</div>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link " href="#">
+											<i class="fa fa-fw fa-bar-chart"></i> Charts </a>
+									</li>
+									<li class="nav-item">
+										<a class="nav-link " href="#">
+											<i class="fa fa-fw fa-compass"></i> Areas </a>
+									</li>
+								</ul>
+							</div>
+						</li>-->
+						 
+						
+					</ul>
+				</div>
+			</li>
+			<li class="nav-item">
+												 <a class="nav-link collapsed " href="#submenu1sub3" data-toggle="collapse" data-target="#submenu1sub3">
+										<i class="icon fa fa-file-o fa-fw " aria-hidden="true"></i><span>Skill Development Plan</span></a>
+										<div class="collapse" id="submenu1sub3" aria-expanded="false">
+										<ul class="flex-column nav ">
+											<li class="nav-item">
+												<a class="nav-link " href="https://cdl.cms.co.in/lms/pluginfile.php/192/block_html/content/learning.pdf"target="_blank">
+													<i class="fa fa-file-pdf-o" aria-hidden="true"></i> Competencies Scale </a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link " href="https://cdl.cms.co.in/lms/pluginfile.php/192/block_html/content/clause.pdf"  target="_blank">
+													<i class="fa fa-file-pdf-o" aria-hidden="true"></i> e-Learning Bond Clause</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link " href="https://cdl.cms.co.in/lms/pluginfile.php/192/block_html/content/core.pdf"  target="_blank">
+													<i class="fa fa-file-pdf-o" aria-hidden="true"></i> Core Competencies in CMS</a>
+											</li>
+											 
+										</ul>
+										</div>
+									</li>
+									<li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/local/staticpage/view.php?page=reading"><span><i class="fa fa-briefcase" aria-hidden="true"></i>Reading Materials</span></a></li>
+									 <li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/pluginfile.php/192/block_html/content/FAQ.pdf"  target="_blank"><i class="icon fa fa-file-o fa-fw" aria-hidden="true"></i>FAQ</a>							</li>
+									
+	<!--		<li class="nav-item">
+				<a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><i class="fa fa-clipboard" aria-hidden="true"></i><span class="d-none d-sm-inline">Skill Devlopment Plan</span></a>
+				<div class="collapse" id="submenu1" aria-expanded="false">
+					<ul class="flex-column  nav">
+						<li class="nav-item"><a class="nav-link " href="https://cdl.cms.co.in/lms/pluginfile.php/192/block_html/content/learning.pdf"  target="_blank"><span>Competencies Scale</span></a></li>
+						<li class="nav-item"><a class="nav-link " href="http://124.153.85.154/pluginfile.php/392/block_html/content/clause.pdf"  target="_blank"><span>e-Learning Bond Clause</span></a></li>
+						<li class="nav-item"><a class="nav-link " href="http://124.153.85.154/pluginfile.php/392/block_html/content/core.pdf"  target="_blank"><span>Core Competencies in CMS</span></a></li>
+						 
+					</ul>
+				</div>
+			</li>  -->
+		<!--	<li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-bar-chart"></i> <span class="d-none d-sm-inline">Analytics</span></a></li>
+			<li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span class="d-none d-sm-inline">Export</span></a></li> -->
+		</ul>
+	</div>
+ 
+		 
 </div>

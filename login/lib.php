@@ -354,7 +354,8 @@ function core_login_get_return_url() {
         // Go to my-moodle page instead of site homepage if defaulthomepage set to homepage_my.
         if ($homepage === HOMEPAGE_MY && !isguestuser()) {
             if ($urltogo == $CFG->wwwroot or $urltogo == $CFG->wwwroot.'/' or $urltogo == $CFG->wwwroot.'/index.php') {
-                $urltogo = $CFG->wwwroot.'/my/';
+//                $urltogo = $CFG->wwwroot.'/my/';
+                $urltogo = $CFG->wwwroot.'/local/staticpage/view.php?page=eLMS';
             }
         }
         if ($homepage === HOMEPAGE_MYCOURSES && !isguestuser()) {
